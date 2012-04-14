@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Enyo Boilerplate</title>
+    <script src="enyo/enyo.js" type="text/javascript"></script>
+    <script src="package.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+       *  The main enyo.kind is named app.Main
+       *  This can be changed to anything you want and namespacing isn't required (but recommended)
+       */
+      var app = new app.Main();
+
+      /*
+       *  The domNode passed to .renderInto(domNode) is replaced by the HTML output of the control being called upon
+       */
+      app.renderInto(document.body)
+
+      /*
+       *  Alternatively:
+       *
+       *  Insert the instantiated control's content into the DOM at document.body
+       *  This turns the content into a string and is output with document.write()
+       */
+      ///app.write()
+    </script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+[submodule "extra"]
+	path = extra
+	url = https://github.com/enyojs/extra
+[submodule "enyo"]
+	path = enyo
+	url = https://github.com/enyojs/enyo
+[submodule "onyx"]
+	path = onyx
+	url = https://github.com/enyojs/onyx
+[submodule "layout"]
+	path = layout
+	url = https://github.com/enyojs/layout
