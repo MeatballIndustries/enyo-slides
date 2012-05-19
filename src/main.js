@@ -11,7 +11,15 @@ enyo.kind({
   components: [
     {name: 'mainLayout', kind: 'FittableRows', classes: 'enyo-fit', components: [
       {fit: true},
-      {kind: 'onyx.Toolbar', content: 'Onyx Toolbar Example'}
+      {
+        kind: 'onyx.Toolbar',
+        layoutKind: 'FittableColumnsLayout',
+        components: [
+          {kind: 'onyx.Button', allowHtml: true, content: '&larr; Back'},
+          {fit: true},
+          {kind: 'onyx.Button', allowHtml: true, content: 'Next &rarr;'}
+        ]
+      }
     ]}
   ]
 });
