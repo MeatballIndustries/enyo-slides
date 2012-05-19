@@ -1,0 +1,17 @@
+EnyoSlides
+==========
+
+EnyoSlides is a framework for generating fluid and interactive presentations
+using the [EnyoJS](http://enyojs.com) JavaScript framework. Presenters can
+define Enyo kinds for their slides and showcase live Enyo components in real
+time. Further, anyone with the presentation's URL can tune in to the
+presentation, play with it on their device, and leave comments and questions
+for the presenter.
+
+Hacking
+-------
+
+EnyoSlides is written using EnyoJS for the frontend and the backend is a
+NodeJS server. Communication between client and server is done using
+WebSockets.
+
