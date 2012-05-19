@@ -1,3 +1,3 @@
 enyo.depends(
-  'Main.js'
+  'main.js'
 )
