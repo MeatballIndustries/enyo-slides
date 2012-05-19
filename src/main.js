@@ -10,7 +10,14 @@ enyo.kind({
    */
   components: [
     {name: 'mainLayout', kind: 'FittableRows', classes: 'enyo-fit', components: [
-      {fit: true},
+      {
+        kind: 'Villo.Book',
+        name: 'slidesBook',
+        fit:  true,
+        components: [
+          {kind: "Villo.Page", content: "dick"}
+        ]
+      },
       {
         kind: 'onyx.Toolbar',
         layoutKind: 'FittableColumnsLayout',
@@ -21,5 +28,12 @@ enyo.kind({
         ]
       }
     ]}
-  ]
+  ],
+
+  create: function() {
+    this.inherited(arguments);
+
+    this.$.slidesBook.createComponent( { kind: "Slides.Slide", name: "pageOne" } );
+    this.render();
+  }
 });
