@@ -22,7 +22,7 @@
 
 
 enyo.kind({
-	name: "Book",
+	name: "Villo.Book",
 	kind: "Control",
 	published: {
 		//"fade", "simple", "pop"
