@@ -1,5 +1,5 @@
 enyo.depends(
   'onyx',
-  'lib/Books',
+  'libs/Books',
   'src'
 );
