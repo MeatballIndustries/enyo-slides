@@ -10,9 +10,6 @@
 [submodule "layout"]
 	path = layout
 	url = https://github.com/enyojs/layout
-[submodule "Labs"]
-	path = Labs
-	url = https://github.com/Newness/Labs
 [submodule "NewnessLabs"]
 	path = NewnessLabs
 	url = https://github.com/Newness/Labs
