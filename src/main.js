@@ -9,6 +9,9 @@ enyo.kind({
    *  Array of "kind" objects that compose the layout of your app
    */
   components: [
-    {kind: 'onyx.Toolbar', content: 'Onyx Toolbar Example'}
+    {name: 'mainLayout', kind: 'FittableRows', classes: 'enyo-fit', components: [
+      {fit: true},
+      {kind: 'onyx.Toolbar', content: 'Onyx Toolbar Example'}
+    ]}
   ]
 });
