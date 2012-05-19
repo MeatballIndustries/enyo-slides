@@ -3,7 +3,7 @@
  */
 
 enyo.kind({
-	name: "Villo.Page",
-	kind: "Control",
-	classes: "enyo-page"
+  name: "Villo.Page",
+  kind: "Control",
+  classes: "enyo-page"
 });
