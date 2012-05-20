@@ -60,7 +60,7 @@ enyo.kind({
   gotSlides: function(inRequest, inResponse) {
     enyo.log( "Got slides.json" );
     this.slideUrls = inResponse; 
-    enyo.forEach( inResponse, this.setupSlideAjax, this );
+    enyo.map( inResponse, this.setupSlideAjax, this );
   },
 
   setupSlideAjax: function( url ) {
@@ -85,7 +85,7 @@ enyo.kind({
 
   setViewTypes: function() {
     this.$.slidesPanes.viewTypes = [];
-    for( i in this.slideUrls ) {
+    for( i in this.slideUrls ) { // FIXME: Convert to map for easier to readness
       // Push each slide in order
       this.$.slidesPanes.viewTypes.push(this.slides["presentation/" + this.slideUrls[parseInt(i)]]);
     }
