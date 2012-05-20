@@ -11,11 +11,10 @@ enyo.kind({
   components: [
     {name: 'mainLayout', kind: 'FittableRows', classes: 'enyo-fit', components: [
       {
-        kind: 'Villo.Book',
-        name: 'slidesBook',
+        kind: 'newness.InfiniteSlidingPane',
+        name: 'slidesPanes',
         fit:  true,
         components: [
-          {kind: "Villo.Page", content: "dick"}
         ]
       },
       {
@@ -33,7 +32,9 @@ enyo.kind({
   create: function() {
     this.inherited(arguments);
 
-    this.$.slidesBook.createComponent( { kind: "Slides.Slide", name: "pageOne" } );
-    this.render();
+    var component = { kind: "Slides.Slide", name: "slide1", content: "Hello world!" };
+    this.$.slidesPanes.viewTypes.push( component );
+    this.$.slidesPanes.push( "slide1" );
   }
 });
+

@@ -12,4 +12,4 @@
 	url = https://github.com/enyojs/layout
 [submodule "NewnessLabs"]
 	path = NewnessLabs
-	url = https://github.com/Newness/Labs
+	url = https://github.com/rrix/NewnessLabs
