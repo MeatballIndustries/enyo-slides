@@ -12,19 +12,22 @@ enyo.kind({
     {name: 'mainLayout', kind: 'FittableRows', classes: 'enyo-fit', components: [
       {
         kind: 'newness.InfiniteSlidingPane',
-        name: 'slidesPane',
-        fit:  true,
-        viewTypes: [
-          { kind: "Slides.Slide", name: "pageOne", content: 'Title Pane' }
-        ]
+        name: 'slidesPanes',
+        fit:  true
       },
       {
         kind: 'onyx.Toolbar',
         layoutKind: 'FittableColumnsLayout',
         components: [
-          {kind: 'onyx.Button', allowHtml: true, content: '&larr; Back'},
-          {kind: 'onyx-custom.ProgressBar', position: '50', style: 'height: 12px; margin: 10px !important;', fit: true},
-          {kind: 'onyx.Button', allowHtml: true, content: 'Next &rarr;'}
+          {kind:      'onyx.Button',
+           allowHtml: true,
+           content:   '&larr; Back',
+           onclick:   'previousSlide'},
+          {kind: 'onyx.ProgressBar', position: '50', style: 'height: 12px; margin: 10px !important;', fit: true},
+          {kind:      'onyx.Button',
+           allowHtml: true,
+           content:   'Next &rarr;',
+           onclick:   'nextSlide'}
         ]
       }
     ]}
@@ -33,6 +36,21 @@ enyo.kind({
   create: function() {
     this.inherited(arguments);
 
-    this.$.slidesPane.push('pageOne');
+    var component = { kind: "Slides.Slide", name: "slide1", content: "Hello world 1!" };
+    this.$.slidesPanes.viewTypes.push( component );
+    component = { kind: "Slides.Slide", name: "slide2", content: "Hello world 2!" };
+    this.$.slidesPanes.viewTypes.push( component );
+    component = { kind: "Slides.Slide", name: "slide3", content: "Hello world 3!" };
+    this.$.slidesPanes.viewTypes.push( component );
+  },
+
+  nextSlide: function() {
+    component = this.$.slidesPanes.viewTypes[this.$.slidesPanes.getViewCount()];
+    this.$.slidesPanes.push(component.name);
+  },
+
+  previousSlide: function() {
+    this.$.slidesPanes.getView().pop();
   }
 });
+
