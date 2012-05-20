@@ -23,17 +23,14 @@ enyo.kind({
            allowHtml: true,
            content:   '&larr; Back',
            onclick:   'previousSlide'},
-<<<<<<< HEAD
           {
             kind: 'onyx.ProgressBar',
+            name: 'slidesProgress',
             progress: '50',
             animateStripes: false,
             style: 'height: 12px; margin: 10px !important;',
             fit: true
           },
-=======
-          {kind: 'onyx.ProgressBar', name: 'slidesProgress', position: '50', style: 'height: 12px; margin: 10px !important;', fit: true},
->>>>>>> ffeef1e8b2ee5e94ce7971e599239940001beeeb
           {kind:      'onyx.Button',
            allowHtml: true,
            content:   'Next &rarr;',
