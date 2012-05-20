@@ -13,7 +13,8 @@ enyo.kind({
       {
         kind: 'newness.InfiniteSlidingPane',
         name: 'slidesPanes',
-        fit:  true
+        fit:  true,
+        ondragfinish: "dragfinish"
       },
       {
         kind: 'onyx.Toolbar',
@@ -69,6 +70,19 @@ enyo.kind({
 
     this.$.slidesProgress.max = full;
     this.$.slidesProgress.animateProgressTo( current );
+  },
+
+  dragfinish: function(inSender,inEvent) {
+    var poop;
+    if( inEvent.dx < -window.innerWidth/3 )
+    {
+      this.nextSlide();
+    }
+    else  if( inEvent.dx > window.innerWidth/3 )
+    {
+      this.previousSlide();
+    }
+    inEvent.preventDefault();
   }
 });
 
