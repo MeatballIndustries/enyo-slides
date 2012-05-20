@@ -43,6 +43,16 @@ enyo.kind({
     this.$.slidesPanes.viewTypes.push( component );
     component = { kind: "Slides.Slide", name: "slide3", content: "Hello world 3!" };
     this.$.slidesPanes.viewTypes.push( component );
+    component = { kind: "Slides.Slide", name: "slide4", content: "Hello world 3!" };
+    this.$.slidesPanes.viewTypes.push( component );
+    component = { kind: "Slides.Slide", name: "slide5", content: "Hello world 3!" };
+    this.$.slidesPanes.viewTypes.push( component );
+    component = { kind: "Slides.Slide", name: "slide6", content: "Hello world 3!" };
+    this.$.slidesPanes.viewTypes.push( component );
+    component = { kind: "Slides.Slide", name: "slide7", content: "Hello world 3!" };
+    this.$.slidesPanes.viewTypes.push( component );
+    component = { kind: "Slides.Slide", name: "slide8", content: "Hello world 3!" };
+    this.$.slidesPanes.viewTypes.push( component );
 
     this.nextSlide(); // start at slide 1
   },
@@ -78,11 +88,7 @@ enyo.kind({
     {
       this.nextSlide();
     }
-    else  if( inEvent.dx > window.innerWidth/3 )
-    {
-      this.previousSlide();
-    }
-    inEvent.preventDefault();
+    setTimeout(enyo.bind(this,this.updateProgress), 500); // Fuck this.
   }
 });
 
