@@ -1,6 +1,7 @@
 enyo.depends(
   'onyx',
-  'NewnessLabs/InfiniteSlidingPane/source',
   'layout',
+  'libs/onyx-custom',
+  'NewnessLabs/InfiniteSlidingPane/source',
   'src'
 );

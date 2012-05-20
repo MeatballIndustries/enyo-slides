@@ -11,11 +11,11 @@ enyo.kind({
   components: [
     {name: 'mainLayout', kind: 'FittableRows', classes: 'enyo-fit', components: [
       {
-        kind: 'Villo.Book',
-        name: 'slidesBook',
+        kind: 'newness.InfiniteSlidingPane',
+        name: 'slidesPane',
         fit:  true,
-        components: [
-          {kind: "Villo.Page", content: "dick"}
+        viewTypes: [
+          { kind: "Slides.Slide", name: "pageOne", content: 'Title Pane' }
         ]
       },
       {
@@ -23,7 +23,7 @@ enyo.kind({
         layoutKind: 'FittableColumnsLayout',
         components: [
           {kind: 'onyx.Button', allowHtml: true, content: '&larr; Back'},
-          {fit: true},
+          {kind: 'onyx-custom.ProgressBar', position: '50', style: 'height: 12px; margin: 10px !important;', fit: true},
           {kind: 'onyx.Button', allowHtml: true, content: 'Next &rarr;'}
         ]
       }
@@ -33,7 +33,6 @@ enyo.kind({
   create: function() {
     this.inherited(arguments);
 
-    this.$.slidesBook.createComponent( { kind: "Slides.Slide", name: "pageOne" } );
-    this.render();
+    this.$.slidesPane.push('pageOne');
   }
 });
