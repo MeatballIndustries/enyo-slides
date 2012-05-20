@@ -23,7 +23,7 @@ enyo.kind({
            allowHtml: true,
            content:   '&larr; Back',
            onclick:   'previousSlide'},
-          {kind: 'onyx.ProgressBar', position: '50', style: 'height: 12px; margin: 10px !important;', fit: true},
+          {kind: 'onyx.ProgressBar', name: 'slidesProgress', position: '50', style: 'height: 12px; margin: 10px !important;', fit: true},
           {kind:      'onyx.Button',
            allowHtml: true,
            content:   'Next &rarr;',
@@ -42,15 +42,33 @@ enyo.kind({
     this.$.slidesPanes.viewTypes.push( component );
     component = { kind: "Slides.Slide", name: "slide3", content: "Hello world 3!" };
     this.$.slidesPanes.viewTypes.push( component );
+
+    this.nextSlide(); // start at slide 1
   },
 
   nextSlide: function() {
-    component = this.$.slidesPanes.viewTypes[this.$.slidesPanes.getViewCount()];
-    this.$.slidesPanes.push(component.name);
+    if( this.$.slidesPanes.getViewCount() < this.$.slidesPanes.viewTypes.length )
+    {
+      component = this.$.slidesPanes.viewTypes[this.$.slidesPanes.getViewCount()];
+      this.$.slidesPanes.push(component.name);
+      this.updateProgress();
+    }
   },
 
   previousSlide: function() {
-    this.$.slidesPanes.getView().pop();
+    if( this.$.slidesPanes.getViewCount() > 1 )
+    {
+        this.$.slidesPanes.getView().pop();
+        setTimeout(enyo.bind(this,this.updateProgress), 500); // Fuck this.
+    }
+  },
+
+  updateProgress: function() {
+    var full = this.$.slidesPanes.viewTypes.length;
+    var current = this.$.slidesPanes.getViewCount();
+
+    this.$.slidesProgress.max = full;
+    this.$.slidesProgress.animateProgressTo( current );
   }
 });
 
