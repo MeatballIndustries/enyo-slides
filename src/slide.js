@@ -1,4 +1,4 @@
 enyo.kind( {
   name: "Slides.Slide",
-  kind: "newness.InfiniteSlidingView"
+  kind: "enyo.Control"
 });
