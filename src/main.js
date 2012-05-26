@@ -11,10 +11,36 @@ enyo.kind({
   components: [
     {name: 'mainLayout', kind: 'FittableRows', classes: 'enyo-fit', components: [
       {
-        kind: 'newness.InfiniteSlidingPane',
+        kind: 'Slides.SlidesPane',
         name: 'slidesPanes',
         fit:  true,
-        ondragfinish: "dragfinish"
+        ondragfinish: "dragfinish",
+        components: [
+          {
+            kind: "Slides.Slide",
+            name: "slide3",
+            style: 'float:right',
+
+            components: [
+              {kind: "onyx.Button", name: "incrementor", onclick: "increment", content: "Count up!"},
+              {name: "number", value: 0, content: 0}
+            ],
+
+            create: function() {
+              enyo.log("test2");
+              this.inherited(arguments);
+              enyo.log("test3");
+            },
+
+            increment: function() {
+              this.$.number.value++;
+              this.$.number.content = value;
+              this.$.number.render();
+
+              enyo.log("test");
+            }
+          }
+        ]
       },
       {
         kind: 'onyx.Toolbar',
@@ -24,7 +50,11 @@ enyo.kind({
            allowHtml: true,
            content:   '&larr; Back',
            onclick:   'previousSlide'},
-          {kind: 'onyx.ProgressBar', name: 'slidesProgress', position: '50', style: 'height: 12px; margin: 10px !important;', fit: true},
+          {kind:      'onyx.ProgressBar',
+           name:      'slidesProgress',
+           position:  '50',
+           style:     'height: 12px; margin: 10px !important;',
+           fit:       true},
           {kind:      'onyx.Button',
            allowHtml: true,
            content:   'Next &rarr;',
@@ -44,8 +74,8 @@ enyo.kind({
   create: function() {
     this.inherited(arguments);
 
-    var component = { kind: "Slides.Slide", name: "slide1", content: "We're loading your slides. Just a sec." };
-    this.$.slidesPanes.viewTypes.push( component );
+    var component = { kind: "Slides.Slide", name: "baconwaffle", content: "We're loading your slides. Just a sec." };
+    this.$.slidesPanes.addSlide( component );
 
     this.getSlidesIndexAjax = new enyo.Ajax({ url: "presentation/slides.json" });
     this.getSlidesIndexAjax.response(this, "gotSlides");
@@ -64,7 +94,7 @@ enyo.kind({
   },
 
   setupSlideAjax: function( url ) {
-    var getSlidesIndexAjax = new enyo.Ajax({ url: "presentation/" + url });
+    var getSlidesIndexAjax = new enyo.Ajax({ url: "presentation/" + url, handleAs: "text" });
     getSlidesIndexAjax.response(this, "gotSlide");
     getSlidesIndexAjax.go();
   },
@@ -74,7 +104,9 @@ enyo.kind({
     if(typeof(inResponse) == "object") {
       this.slides[inRequest.url] = inResponse;
     } else if(typeof(inResponse) == "string") {
-      this.slides[inRequest.url] = eval( "(" + inResponse + ")"); // FIXME: Make this work with enyo.json.parse
+      var object = eval( "(" + inResponse + ")");
+      this.slides[inRequest.url] = object;
+      enyo.log(object);
     }
 
     this.slidesCount++;
@@ -84,28 +116,28 @@ enyo.kind({
   },
 
   setViewTypes: function() {
-    this.$.slidesPanes.viewTypes = [];
+    this.$.slidesPanes.cleanOut();
     for( i in this.slideUrls ) { // FIXME: Convert to map for easier to readness
       // Push each slide in order
-      this.$.slidesPanes.viewTypes.push(this.slides["presentation/" + this.slideUrls[parseInt(i)]]);
+      this.$.slidesPanes.addSlide(this.slides["presentation/" + this.slideUrls[parseInt(i)]]);
     }
 
-    this.$.slidesPanes.reset(this.$.slidesPanes.viewTypes[0].name);
+    this.$.slidesPanes.goToSlide(0); // Hit first slide
     this.updateProgress();
   },
 
   // {{{1 Slide navigation
   nextSlide: function() {
-    if( this.$.slidesPanes.getViewCount() < this.$.slidesPanes.viewTypes.length )
+    if( this.$.slidesPanes.position < this.$.slidesPanes.count )
     {
-      component = this.$.slidesPanes.viewTypes[this.$.slidesPanes.getViewCount()];
+      component = this.$.slidesPanes.viewTypes[this.$.slidesPanes.position];
       this.$.slidesPanes.push(component.name);
       this.updateProgress();
     }
   },
 
   previousSlide: function() {
-    if( this.$.slidesPanes.getViewCount() > 1 )
+    if( this.$.slidesPanes.position > 1 )
     {
         this.$.slidesPanes.getView().pop();
         setTimeout(enyo.bind(this,this.updateProgress), 500); // Fuck this.
@@ -113,8 +145,8 @@ enyo.kind({
   },
 
   updateProgress: function() {
-    var full = this.$.slidesPanes.viewTypes.length;
-    var current = this.$.slidesPanes.getViewCount();
+    var full = this.$.slidesPanes.count;
+    var current = this.$.slidesPanes.position;
 
     this.$.slidesProgress.max = full;
     this.$.slidesProgress.animateProgressTo( current );
