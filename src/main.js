@@ -15,32 +15,6 @@ enyo.kind({
         name: 'slidesPanes',
         fit:  true,
         ondragfinish: "dragfinish",
-        components: [
-          {
-            kind: "Slides.Slide",
-            name: "slide3",
-            style: 'float:right',
-
-            components: [
-              {kind: "onyx.Button", name: "incrementor", onclick: "increment", content: "Count up!"},
-              {name: "number", value: 0, content: 0}
-            ],
-
-            create: function() {
-              enyo.log("test2");
-              this.inherited(arguments);
-              enyo.log("test3");
-            },
-
-            increment: function() {
-              this.$.number.value++;
-              this.$.number.content = value;
-              this.$.number.render();
-
-              enyo.log("test");
-            }
-          }
-        ]
       },
       {
         kind: 'onyx.Toolbar',
@@ -65,10 +39,6 @@ enyo.kind({
   ],
 
   slideUrls: [],  // Properly ordered list of slides' URLs.
-  slides:    [],  // A map of slideUrl to its JSON. This is because we get the
-                  // Ajaxen in possibly the wrong order. So let's just dump
-                  // them in to a map and let the slideUrls variable sort it.
-                  // Is that wrong of me?
   slidesCount: 0, // a counter, because I suck.
 
   create: function() {
@@ -104,9 +74,7 @@ enyo.kind({
     if(typeof(inResponse) == "object") {
       this.slides[inRequest.url] = inResponse;
     } else if(typeof(inResponse) == "string") {
-      var object = eval( "(" + inResponse + ")");
-      this.slides[inRequest.url] = object;
-      enyo.log(object);
+      eval( inResponse );
     }
 
     this.slidesCount++;
@@ -119,7 +87,8 @@ enyo.kind({
     this.$.slidesPanes.cleanOut();
     for( i in this.slideUrls ) { // FIXME: Convert to map for easier to readness
       // Push each slide in order
-      this.$.slidesPanes.addSlide(this.slides["presentation/" + this.slideUrls[parseInt(i)]]);
+      var kindName = this.slideUrls[i].match(/(\w*)/)[0];
+      this.$.slidesPanes.addSlide({kind:kindName});
     }
 
     this.$.slidesPanes.goToSlide(0); // Hit first slide
