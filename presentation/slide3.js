@@ -1,7 +1,6 @@
-{
+enyo.kind({
   kind: "Slides.Slide",
   name: "slide3",
-  style: 'float:right',
 
   components: [
     {kind: "onyx.Button", name: "incrementor", onclick: "increment", content: "Count up!"},
@@ -15,9 +14,9 @@
 
   increment: function() {
     this.$.number.value++;
-    this.$.number.content = value;
+    this.$.number.content = this.$.number.value;
     this.$.number.render();
 
     enyo.log("test");
   }
-}
+});
