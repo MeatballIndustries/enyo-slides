@@ -14,7 +14,7 @@ enyo.kind({
         kind: 'Slides.SlidesPane',
         name: 'slidesPanes',
         fit:  true,
-        ondragfinish: "dragfinish",
+        onTransitionFinish: 'updateProgress'
       },
       {
         kind: 'onyx.Toolbar',
@@ -38,15 +38,12 @@ enyo.kind({
     ]}
   ],
 
-  slideUrls: [],  // Properly ordered list of slides' URLs.
-  slidesCount: 0, // a counter, because I suck.
-
   create: function() {
     this.inherited(arguments);
 
     enyo.map( slideOrder, this.setupSlide, this );
+    this.updateProgress();
 
-    this.nextSlide(); // start at slide 1
     if( window.PalmSystem ) {
       window.PalmSystem.stageReady();
     }
@@ -54,43 +51,24 @@ enyo.kind({
 
   setupSlide: function( kindName ) {
     this.$.slidesPanes.addSlide({kind:kindName});
-    this.updateProgress();
   },
 
   // {{{1 Slide navigation
   nextSlide: function() {
-    if( this.$.slidesPanes.position < this.$.slidesPanes.count )
-    {
-      component = this.$.slidesPanes.viewTypes[this.$.slidesPanes.position];
-      this.$.slidesPanes.push(component.name);
-      this.updateProgress();
-    }
+    this.$.slidesPanes.next();
   },
 
   previousSlide: function() {
-    if( this.$.slidesPanes.position > 1 )
-    {
-        this.$.slidesPanes.getView().pop();
-        setTimeout(enyo.bind(this,this.updateProgress), 500); // Fuck this.
-    }
+    this.$.slidesPanes.previous();
   },
 
   updateProgress: function() {
-    var full = this.$.slidesPanes.count;
-    var current = this.$.slidesPanes.position;
+    var full = this.$.slidesPanes.getPanels().length;
+    var current = this.$.slidesPanes.index + 1; // Zero based index
 
     this.$.slidesProgress.max = full;
     this.$.slidesProgress.animateProgressTo( current );
   },
   // }}}1
-
-  dragfinish: function(inSender,inEvent) {
-    var poop;
-    if( inEvent.dx < -window.innerWidth/3 )
-    {
-      this.nextSlide();
-    }
-    setTimeout(enyo.bind(this,this.updateProgress), 500); // Fuck this.
-  }
 });
 

@@ -1,10 +1,7 @@
 enyo.kind({
-  kind: "enyo.Control",
+  kind: "Panels",
   name: "Slides.SlidesPane",
-  published: {
-    count: 0,
-    position: 0
-  },
+  arrangerKind: "CardArranger",
 
   addSlide: function( component ) {
     enyo.log( "Adding component:" );
@@ -15,19 +12,11 @@ enyo.kind({
     this.render();
   },
 
-  nextSlide: function() {
-    enyo.log("Unimp");
-  },
-
-  previousSlide: function() {
-    enyo.log("Unimp");
-  },
-
   cleanOut: function() {
     this.destroyComponents();
   },
 
   goToSlide: function( idx ) {
-    enyo.log("Unimp");
+    this.setIndex( idx );
   }
 });
