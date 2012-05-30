@@ -1,5 +1,1 @@
-enyo.depends(
-  'onyx',
-  'layout',
-  'src'
-);
+// This is stubbed out in enyo-slides-server
