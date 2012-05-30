@@ -44,9 +44,6 @@ enyo.kind({
   create: function() {
     this.inherited(arguments);
 
-    var component = { kind: "Slides.Slide", name: "baconwaffle", content: "We're loading your slides. Just a sec." };
-    this.$.slidesPanes.addSlide( component );
-
     enyo.map( slideOrder, this.setupSlide, this );
 
     this.nextSlide(); // start at slide 1
