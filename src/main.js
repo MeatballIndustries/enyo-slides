@@ -47,20 +47,12 @@ enyo.kind({
     var component = { kind: "Slides.Slide", name: "baconwaffle", content: "We're loading your slides. Just a sec." };
     this.$.slidesPanes.addSlide( component );
 
-    this.getSlidesIndexAjax = new enyo.Ajax({ url: "presentation/slides.json" });
-    this.getSlidesIndexAjax.response(this, "gotSlides");
-    this.getSlidesIndexAjax.go();
+    enyo.map( slideOrder, this.setupSlide, this );
 
     this.nextSlide(); // start at slide 1
     if( window.PalmSystem ) {
       window.PalmSystem.stageReady();
     }
-  },
-
-  gotSlides: function(inRequest, inResponse) {
-    enyo.log( "Got slides.json" );
-    this.slideUrls = inResponse; 
-    enyo.map( inResponse, this.setupSlide, this );
   },
 
   setupSlide: function( kindName ) {
