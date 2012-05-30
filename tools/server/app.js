@@ -30,6 +30,10 @@ app.configure('production', function(){
 // app.get('/', routes.index);
 app.get('/src/presentation.js', routes.presentation);
 
+// Custom package.js handler for dynamic slide loading
+app.get('/package.js', routes.packagejs);
+
 app.listen(8888, function(){
   console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
 });
+

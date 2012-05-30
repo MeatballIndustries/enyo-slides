@@ -12,3 +12,9 @@ exports.presentation = function(req, res){
     'enyo.kind({name: "presentation"})'
   );
 };
+
+exports.packagejs = function(req, res){
+  res.end(
+      'enyo.depends( "onyx", "layout", "src/", "presentation/" );'
+      )
+}
