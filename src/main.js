@@ -60,38 +60,11 @@ enyo.kind({
   gotSlides: function(inRequest, inResponse) {
     enyo.log( "Got slides.json" );
     this.slideUrls = inResponse; 
-    enyo.map( inResponse, this.setupSlideAjax, this );
+    enyo.map( inResponse, this.setupSlide, this );
   },
 
-  setupSlideAjax: function( url ) {
-    var getSlidesIndexAjax = new enyo.Ajax({ url: "presentation/" + url, handleAs: "text" });
-    getSlidesIndexAjax.response(this, "gotSlide");
-    getSlidesIndexAjax.go();
-  },
-
-  gotSlide: function( inRequest, inResponse ) {
-    enyo.log( "Got slide " + inRequest.url );
-    if(typeof(inResponse) == "object") {
-      this.slides[inRequest.url] = inResponse;
-    } else if(typeof(inResponse) == "string") {
-      eval( inResponse );
-    }
-
-    this.slidesCount++;
-    if(this.slidesCount == this.slideUrls.length) {
-      this.setViewTypes();
-    }
-  },
-
-  setViewTypes: function() {
-    this.$.slidesPanes.cleanOut();
-    for( i in this.slideUrls ) { // FIXME: Convert to map for easier to readness
-      // Push each slide in order
-      var kindName = this.slideUrls[i].match(/(\w*)/)[0];
-      this.$.slidesPanes.addSlide({kind:kindName});
-    }
-
-    this.$.slidesPanes.goToSlide(0); // Hit first slide
+  setupSlide: function( kindName ) {
+    this.$.slidesPanes.addSlide({kind:kindName});
     this.updateProgress();
   },
 
