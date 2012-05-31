@@ -1,6 +1,1 @@
-enyo.depends(
-  'onyx',
-  'layout',
-  'NewnessLabs/InfiniteSlidingPane/source',
-  'src'
-);
+// This is stubbed out in enyo-slides-server

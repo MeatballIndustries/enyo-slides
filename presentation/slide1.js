@@ -1,4 +1,4 @@
-{
+enyo.kind({
   kind: "Slides.Slide",
   name: "slide1",
 
@@ -7,4 +7,4 @@
     {tag: "h2", content: "Blaine Bublitz and Ryan Rix"},
     {tag: "h2", content: "(@BlaineBublitz and @rrrrrrrix)"}
   ]
-}
+});
