@@ -15,6 +15,6 @@ exports.presentation = function(req, res){
 
 exports.packagejs = function(req, res){
   res.end(
-      'enyo.depends( "onyx", "layout", "src/", "presentation/" );'
-      )
+    'enyo.depends( "onyx", "layout", "layout/panels", "src/", "presentation/" );'
+  )
 }
