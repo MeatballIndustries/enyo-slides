@@ -39,10 +39,21 @@ app.get('/package.js', routes.packagejs);
 
 // Socket Routes
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
+
+  socket.on('set presenter', function(){
+    socket.set('presenter', true, function(){
+      socket.emit('ready');
+    });
   });
+
+  socket.on('slideChanged', function(slideIndex){
+    socket.get('presenter', function(err, isPresenter){
+      if(isPresenter){
+        socket.broadcast.emit('changeSlide', slideIndex);
+      }
+    });
+  });
+
 });
 
 app.listen(8888, function(){
