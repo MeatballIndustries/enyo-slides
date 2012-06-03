@@ -2,29 +2,25 @@ enyo.kind({
   name: 'Socket',
   address: 'http://127.0.0.1',
   socket: null,
-  // Socket.on
-  // Array of objects
-  // {
-  //    name: 'news',
-  //    callback: function(data){}
-  // }
+  /* Socket.on
+    Array of objects
+    {
+       name: 'news',
+       callback: function(data){}
+    }
+  */
   on: [],
-  // Sockect.emit
-  // Array of objects
-  // {
-  //    name: 'my other event',
-  //    data: { my: 'data' }
-  // }
-  emit: [],
+  emit: null,
   create: function(){
     // Has to be called to fire the super-class create method
     this.inherited(arguments);
 
     // Make a new socket
     this.socket = io.connect(this.address);
-    // Bind arrays to on and emit
+    // Bind arrays to on
     this.connect('on', this.on);
-    this.connect('emit', this.emit);
+    // Convenience for emit
+    this.emit = enyo.bind(this.socket, this.socket.emit);
   },
   connect: function(connType, connArray){
     enyo.forEach(connArray, function(connObject){
