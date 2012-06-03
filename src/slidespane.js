@@ -3,11 +3,11 @@ enyo.kind({
   name: "Slides.SlidesPane",
   arrangerKind: "CardArranger",
 
-  addSlide: function( component ) {
+  addSlide: function(component) {
     enyo.log( "Adding component:" );
     enyo.log( component );
 
-    var instance = this.createComponent( component, {owner: this} );
+    var instance = this.createComponent(component, {owner: this});
 
     this.render();
   },
@@ -16,7 +16,7 @@ enyo.kind({
     this.destroyComponents();
   },
 
-  goToSlide: function( idx ) {
+  goToSlide: function(idx) {
     this.setIndex( idx );
   }
 });
