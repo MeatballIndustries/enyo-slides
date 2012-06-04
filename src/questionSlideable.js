@@ -50,6 +50,12 @@ enyo.kind({
   ],
 
   submitQuestion: function(){
-    console.log('pressed');
+    // console.log('pressed');
+    // console.log(this.owner.socket);
+    var name = this.$.nameInput.getValue().trim()
+      , question = this.$.questionInput.getValue().trim();
+    if(name && question){
+      this.owner.socket.emit('newQuestion', { name: name, question: question });
+    }
   }
 });

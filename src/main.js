@@ -36,7 +36,8 @@ enyo.kind({
             {
               name: 'followAlongToggle',
               kind: 'onyx.ToggleButton',
-              value: true
+              value: true,
+              onChange: 'followAlong'
             },
             {
               kind: 'onyx.ProgressBar',
@@ -71,12 +72,18 @@ enyo.kind({
         {
           name: 'changeSlide',
           callback: enyo.bind(this, this.changeSlide)
+        },
+        {
+          name: 'updateQuestions',
+          callback: enyo.bind(this, this.updateQuestions)
         }
       ]
     });
 
     if(window.location.search === '?presenter'){
-      this.socket.emit('set presenter');
+      this.joinPresenter();
+    } else {
+      this.joinViewer();
     }
 
     // Set the max of progress bar when slides are created
@@ -126,6 +133,31 @@ enyo.kind({
       // focus on nameInput which is a child of questionSlideable
       this.$.questionSlideable.$.nameInput.focus();
     }
+  },
+
+  joinPresenter: function(){
+    this.$.followAlongToggle.setDisabled(true);
+    this.socket.emit('setPresenter');
+  },
+
+  joinViewer: function(){
+    this.socket.emit('joinViewer');
+  },
+
+  leaveViewer: function(){
+    this.socket.emit('leaveViewer');
+  },
+
+  followAlong: function(){
+    if(this.$.followAlongToggle.getValue()){
+      this.joinViewer();
+    } else {
+      this.leaveViewer();
+    }
+  },
+
+  updateQuestions: function(question){
+    this.$.slidesPanes.$.questions.addQuestion(question);
   }
 
 });
