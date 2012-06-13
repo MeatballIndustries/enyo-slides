@@ -16,6 +16,7 @@ enyo.kind({
         },
         {
           kind: 'onyx.InputDecorator',
+          classes: 'name-decorator',
           components: [
             {
               name: 'nameInput',
