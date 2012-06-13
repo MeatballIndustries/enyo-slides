@@ -3,20 +3,54 @@ enyo.kind({
   name: "slide3",
 
   components: [
-    {kind: "onyx.Button", name: "incrementor", onclick: "increment", content: "Count up!"},
-    {name: "number", value: 0, content: 0}
+    {classes: "div-left", components: [
+      {kind: "onyx.InputDecorator", fit:true, components: [
+        {kind: "onyx.TextArea", name: "sourceText", fit:true, placeholder: "Type some Enyo!"}
+      ]},
+      {kind: "onyx.Button", content: "Make it so!", onclick: "renderIntoSandbox"}
+    ]},
+    {classes: "div-right", name: "sandbox"}
   ],
 
   create: function() {
     this.inherited(arguments);
-    enyo.log("test2");
   },
 
-  increment: function() {
-    this.$.number.value++;
-    this.$.number.content = this.$.number.value;
-    this.$.number.render();
+  renderIntoSandbox: function(inSender) {
+    try {
+      this.$.sandbox.destroyClientControls();
 
-    enyo.log("test");
+      source = eval("(" + this.getSource() + ")");
+
+      var inprops = {name: source.name};
+      inprops.name = this.uniqueKindName(source.name);
+
+      enyo.mixin(source, inprops);
+      enyo.kind(source);
+
+      var component = this.$.sandbox.createComponent({kind: inprops.name});
+      component.render();
+    } catch(e) {
+      console.error("Could not create component: "+ e);
+    }
+  },
+
+  getSource: function() {
+    return this.$.sourceText.node.value;
+  },
+
+  uniqueKindName: function(inName) {
+    var saneName = inName;
+
+    while(1 == 1) {
+      try{
+        if( !eval(saneName) ) {
+          return saneName;
+        }
+      } catch(e) {
+        enyo.log(saneName + " kind name is taken. Inceptioning.");
+        saneName = saneName + "_";
+      }
+    }
   }
 });
