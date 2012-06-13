@@ -15,6 +15,9 @@ enyo.kind({
       classes: 'enyo-fit',
       components: [
         {
+          kind: 'questionSlideable'
+        },
+        {
           kind: 'Slides.SlidesPane',
           name: 'slidesPanes',
           fit:  true,
@@ -29,6 +32,12 @@ enyo.kind({
               allowHtml: true,
               content: '&larr; Back',
               onclick: 'previousSlide'
+            },
+            {
+              name: 'followAlongToggle',
+              kind: 'onyx.ToggleButton',
+              value: true,
+              onChange: 'followAlong'
             },
             {
               kind: 'onyx.ProgressBar',
@@ -49,12 +58,33 @@ enyo.kind({
     }
   ],
 
+  socket: null,
+
   create: function() {
     // Has to be called to fire the super-class create method
     this.inherited(arguments);
 
     // Loop through the slides array to setup initial slides
     enyo.forEach(slideOrder, this.setupSlide, this);
+
+    this.socket = new Socket({
+      on: [
+        {
+          name: 'changeSlide',
+          callback: enyo.bind(this, this.changeSlide)
+        },
+        {
+          name: 'updateQuestions',
+          callback: enyo.bind(this, this.updateQuestions)
+        }
+      ]
+    });
+
+    if(window.location.search === '?presenter'){
+      this.joinPresenter();
+    } else {
+      this.joinViewer();
+    }
 
     // Set the max of progress bar when slides are created
     var full = this.$.slidesPanes.getPanels().length;
@@ -75,6 +105,12 @@ enyo.kind({
     });
   },
 
+  changeSlide: function(slideIndex){
+    if(this.$.followAlongToggle.value){
+      this.$.slidesPanes.goToSlide(slideIndex);
+    }
+  },
+
   // Slide navigation
   nextSlide: function() {
     this.$.slidesPanes.next();
@@ -88,6 +124,40 @@ enyo.kind({
     // Animate progress bar to the current slide
     var current = this.$.slidesPanes.index + 1; // Zero based index
     this.$.slidesProgress.animateProgressTo( current );
-  }
-});
+    this.socket.emit('slideChanged', this.$.slidesPanes.index);
+  },
 
+  focusName: function(){
+    // If questionSlideable is shown
+    if(this.$.questionSlideable.value === -100){
+      // focus on nameInput which is a child of questionSlideable
+      this.$.questionSlideable.$.nameInput.focus();
+    }
+  },
+
+  joinPresenter: function(){
+    this.$.followAlongToggle.setDisabled(true);
+    this.socket.emit('setPresenter');
+  },
+
+  joinViewer: function(){
+    this.socket.emit('joinViewer');
+  },
+
+  leaveViewer: function(){
+    this.socket.emit('leaveViewer');
+  },
+
+  followAlong: function(){
+    if(this.$.followAlongToggle.getValue()){
+      this.joinViewer();
+    } else {
+      this.leaveViewer();
+    }
+  },
+
+  updateQuestions: function(question){
+    this.$.slidesPanes.$.questions.addQuestion(question);
+  }
+
+});

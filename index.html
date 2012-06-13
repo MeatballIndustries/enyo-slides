@@ -9,6 +9,39 @@
     <!-- Load Enyo and the initial package.js -->
     <script src="enyo/enyo.js" type="text/javascript"></script>
     <script src="package.js" type="text/javascript"></script>
+    <style>
+      .pullout-grabbutton {
+        position: absolute;
+        height: 54px;
+        width: 50px;
+        top: 0;
+        left: -50px;
+        border-radius: 10px 0 0 10px;
+        background-color: #D8D8D8;
+        box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+      }
+
+      .pullout {
+        width: 274px;
+        background-color: #D8D8D8;
+        box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+        border-radius: 0 0 0 10px;
+      }
+
+      .pullout-controls > * {
+        margin: 20px;
+        display: block;
+      }
+
+      .fitting-color {
+        background: #B7BFC4;
+      }
+
+      .slide {
+        padding: 50px;
+      }
+
+    </style>
   </head>
   <!-- enyo-unselectable sets user-select to none in the css -->
   <body class="enyo-unselectable">
@@ -18,16 +51,6 @@
        *  This can be changed to anything you want and namespacing isn't required (but recommended)
        */
       var app = new Slides.Main();
-      var socket = new Socket({
-        on:[
-          {
-            name: 'news',
-            callback: function(data){
-              console.log(data);
-            }
-          }
-        ]
-      });
 
       /*
        *  The domNode passed to .renderInto(domNode) is replaced by the HTML output of the control being called upon
