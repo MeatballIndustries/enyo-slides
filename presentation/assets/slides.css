@@ -1,0 +1,32 @@
+.title {
+  text-align: center;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.left-div {
+  width: 48%;
+  float: left;
+  text-align: justify;
+  margin: 10px;
+}
+
+.right-div {
+  width: 48%;
+  float: right;
+  text-align: justify;
+  margin: 10px;
+}
+
+.left-photo {
+  width: 25%;
+  float: left;
+  margin: 5px;
+}
+.right-photo {
+  width: 25%;
+  float: right;
+  margin: 5px;
+}
