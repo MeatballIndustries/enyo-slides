@@ -1,20 +1,6 @@
-
-/*
- * GET home page.
- */
-
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' })
-};
-
-exports.presentation = function(req, res){
+exports.packagejs = function(req, res){
   res.end(
-    'enyo.kind({name: "presentation"})'
+    'enyo.depends("socket.io/socket.io.js", "onyx/", "layout/", "layout/panels", "src/", "presentation/" );'
   );
 };
 
-exports.packagejs = function(req, res){
-  res.end(
-    'enyo.depends( "onyx", "layout", "layout/panels", "src/", "presentation/" );'
-  )
-}
