@@ -1,22 +1,14 @@
 enyo.kind({
-  kind: "Slides.Slide",
+  kind: "Slides.CodePlayer",
   name: "slide3",
-
-  components: [
-    {kind: "onyx.Button", name: "incrementor", onclick: "increment", content: "Count up!"},
-    {name: "number", value: 0, content: 0}
-  ],
 
   create: function() {
     this.inherited(arguments);
-    enyo.log("test2");
-  },
+    this.codeSamples.push( {name: "Page 1", code: "{kind: 'enyo.Control', content: 'hello world!'}"} );
+    this.codeSamples.push( {name: "Page 2", code: "{kind: 'enyo.Control', content: 'hello world!'}"} );
+    this.$.sampleSelect.selected = 0;
 
-  increment: function() {
-    this.$.number.value++;
-    this.$.number.content = this.$.number.value;
-    this.$.number.render();
-
-    enyo.log("test");
+    this.updateSampleSelect();
   }
+
 });

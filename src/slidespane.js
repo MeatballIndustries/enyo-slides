@@ -4,9 +4,6 @@ enyo.kind({
   arrangerKind: "CardArranger",
 
   addSlide: function(component) {
-    enyo.log( "Adding component:" );
-    enyo.log( component );
-
     var instance = this.createComponent(component, {owner: this});
 
     this.render();
