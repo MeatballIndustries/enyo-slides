@@ -1,7 +1,7 @@
 enyo.kind({
   kind: "Panels",
   name: "Slides.SlidesPane",
-  arrangerKind: "CardArranger",
+  arrangerKind: "HFlipArranger",
 
   addSlide: function(component) {
     var instance = this.createComponent(component, {owner: this});
