@@ -37,6 +37,17 @@
         background: #B7BFC4;
       }
 
+      .responsive-panels > * {
+          width: 50%;
+          background-color: #FFFFFF;
+      }
+
+      /* on small devices, make each panel fit to the app width */
+      @media all and (max-width: 800px) {
+          .responsive-panels > * {
+              min-width: 100%;
+          }
+      }
     </style>
   </head>
   <!-- enyo-unselectable sets user-select to none in the css -->
