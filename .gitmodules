@@ -10,3 +10,6 @@
 [submodule "layout"]
 	path = layout
 	url = https://github.com/enyojs/layout
+[submodule "more-arrangers"]
+	path = more-arrangers
+	url = git://github.com/ShiftyAxel/more-arrangers.git

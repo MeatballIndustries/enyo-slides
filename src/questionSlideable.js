@@ -30,8 +30,9 @@ enyo.kind({
           components: [
             {
               name: 'questionInput',
-              kind: 'Input',
-              placeholder: 'Enter Your Question Here'
+              kind: 'TextArea',
+              placeholder: 'Enter Your Question Here',
+              onkeydown: 'returnPressed'
             }
           ]
         },
@@ -57,6 +58,12 @@ enyo.kind({
       , question = this.$.questionInput.getValue().trim();
     if(name && question){
       this.owner.socket.emit('newQuestion', { name: name, question: question });
+    }
+  },
+
+  returnPressed: function(inSender, inEvent){
+    if(inEvent.keyCode === 13){
+      this.submitQuestion();
     }
   }
 });

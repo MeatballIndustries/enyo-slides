@@ -4,7 +4,7 @@ enyo.kind({
 
   components: [
     {tag: "div", classes: "title", components: [
-      {tag: "h1",  content: "EnyoJS as a Framework for Justice"},
+      {tag: "h1",  content: "EnyoJS as a Framework for Great Justice"},
       {tag: "h2",  content: "Blaine Bublitz and Ryan Rix"},
       {tag: "h2",  content: "(@BlaineBublitz and @rrrrrrrix)"}
     ]}

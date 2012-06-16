@@ -1,6 +1,6 @@
 enyo.kind({
   name: 'Socket',
-  address: 'http://127.0.0.1',
+  address: window.location.href,
   socket: null,
   /* Socket.on
     Array of objects
