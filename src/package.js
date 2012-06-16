@@ -4,5 +4,6 @@ enyo.depends(
   'codePane.js',
   'slidespane.js',
   'questionSlideable.js',
-  'main.js'
+  'main.js',
+  'questions.js'
 );
