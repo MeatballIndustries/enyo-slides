@@ -3,6 +3,10 @@ enyo.kind({
   name: "Slides.CodePlayer",
   layoutKind: 'enyo.FittableRowsLayout',
 
+  published: {
+    codeSamples: []
+  },
+
   components: [
     {
       kind: "onyx.Toolbar",
@@ -27,9 +31,6 @@ enyo.kind({
                   name: "sampleSelect",
                   classes: 'onyx-button', // Super hacky, would be better to specify the same styles in a different class :P
                   style: 'padding-bottom: 5px;',
-                  components: [
-                    {content: 'Sample1', value: 'sample1'}
-                  ]
                 },
                 {
                   kind: "onyx.Button",
@@ -79,6 +80,17 @@ enyo.kind({
 
   renderIntoSandbox: function(inSender) {
     this.$.codePlayer.go(this.$.codeEditor.getValue());
+  },
+
+  setCodeSamples: function() {
+    this.inherited(arguments);
+
+    this.$.sampleSelect.destroyClientControls();
+    for(var idx in arguments[0]) {
+      var sampleFile = arguments[0][idx];
+      this.$.sampleSelect.createComponent({tag: "option", content: sampleFile, value: sampleFile});
+    }
+    this.$.sampleSelect.render();
   },
 
   loadFile: function() {
