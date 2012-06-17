@@ -1,6 +1,6 @@
 enyo.kind({
-  kind: "Slides.Slide",
-  name: "Slides.CodePlayer",
+  kind: "slidedeck.Slide",
+  name: "slidedeck.CodeSlide",
   layoutKind: 'enyo.FittableRowsLayout',
 
   components: [

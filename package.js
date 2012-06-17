@@ -1,1 +1,9 @@
-// This is stubbed out in enyo-slides-server
+enyo.depends(
+  "onyx/",
+  "layout/",
+  "extra/exampler/",
+  "more-arrangers/",
+  "slidedeck/",
+  "src/",
+  "presentation/"
+);

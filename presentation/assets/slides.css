@@ -6,11 +6,32 @@ h2 {
   font-size: 2em;
 }
 
-.title {
+.title-slide {
   text-align: center;
+  background: url(american-flag.jpg);
+  background-size: 102%;
+}
+
+.title-slide .title-text {
   position: absolute;
   top: 25%;
   width: 100%;
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.6);
+  color: #000;
+}
+
+.vendor-logo {
+  position: absolute;
+  max-width: 300px;
+}
+
+.left-logo {
+  left: 5%;
+}
+
+.right-logo {
+  right: 5%;
 }
 
 .strong {

@@ -1,5 +1,5 @@
 enyo.kind( {
-  name: "Slides.Slide",
+  name: "slidedeck.Slide",
   kind: "enyo.Control",
   classes: 'slide'
 });

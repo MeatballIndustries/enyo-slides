@@ -1,8 +1,5 @@
 enyo.depends(
-  'socketio.js',
-  'slide.js',
-  'codePane.js',
-  'slidespane.js',
+  '../socket-io/',
   'questionSlideable.js',
   'main.js'
 );

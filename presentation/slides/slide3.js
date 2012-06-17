@@ -1,4 +1,4 @@
 enyo.kind({
-  kind: "Slides.CodePlayer",
+  kind: "slidedeck.CodeSlide",
   name: "slide3"
 });

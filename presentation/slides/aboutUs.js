@@ -1,10 +1,10 @@
 enyo.kind({
-  kind: "Slides.Slide",
-  name: "slide2",
+  kind: "slidedeck.Slide",
+  name: "aboutUs",
 
   components: [
     {
-      kind: "onyx.Toolbar", content: "Who are we?"
+      kind: "onyx.Toolbar", content: "We Are Kind Of Awesome"
     },
     {
       kind: 'enyo.FittableColumns',
