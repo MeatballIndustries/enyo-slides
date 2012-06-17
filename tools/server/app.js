@@ -35,7 +35,7 @@ app.configure('production', function(){
 // Routes
 
 // Custom package.js handler for dynamic slide loading
-app.get('/package.js', routes.packagejs);
+// app.get('/package.js', routes.packagejs);
 
 // Socket Routes
 io.sockets.on('connection', function (socket) {
