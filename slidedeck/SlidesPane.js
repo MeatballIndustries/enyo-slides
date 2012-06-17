@@ -1,6 +1,6 @@
 enyo.kind({
   kind: "Panels",
-  name: "Slides.SlidesPane",
+  name: "slidedeck.SlidesPane",
   arrangerKind: "HFlipArranger",
 
   addSlide: function(component) {

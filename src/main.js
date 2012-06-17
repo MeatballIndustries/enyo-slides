@@ -3,7 +3,7 @@ enyo.kind({
    *  name:
    *  name of this "kind" (optionally namespaced with a .)
    */
-  name: 'Slides.Main',
+  name: 'Main',
   /*
    *  components:
    *  Array of "kind" objects that compose the layout of your app
@@ -18,7 +18,7 @@ enyo.kind({
           kind: 'questionSlideable'
         },
         {
-          kind: 'Slides.SlidesPane',
+          kind: 'slidedeck.SlidesPane',
           name: 'slidesPanes',
           fit:  true,
           onTransitionFinish: 'updateProgress'

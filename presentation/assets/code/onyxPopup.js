@@ -6,18 +6,19 @@ enyo.kind({
     {kind: "onyx.Button",
      classes: "onyx-affirmative",
      onclick: "showTwitterPopup",
-     content: "Follow Enyo on Twitter!"},
+     content: "Show me more about Enyo!"},
     {kind: "onyx.Popup",
-     name: "twitterPopup",
+     name: "enyoPopup",
+     classes: "enyo-fit",
      components: [
        {tag: "iframe",
-        src: "http://twitter.com/enyojs",
+        src: "http://enyojs.com",
         classes: "enyo-fill",
         style: "border-none"}
     ]}
   ],
 
   showTwitterPopup: function(inSender) {
-    this.$.twitterPopup.show();
+    this.$.enyoPopup.show();
   }
 });

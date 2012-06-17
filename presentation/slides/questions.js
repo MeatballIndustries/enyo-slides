@@ -1,5 +1,5 @@
 enyo.kind({
-  kind: 'Slides.Slide',
+  kind: 'slidedeck.Slide',
   name: 'questions',
   components: [
     {

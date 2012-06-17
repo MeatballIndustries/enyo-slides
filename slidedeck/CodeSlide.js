@@ -1,6 +1,6 @@
 enyo.kind({
-  kind: "Slides.Slide",
-  name: "Slides.CodePlayer",
+  kind: "slidedeck.Slide",
+  name: "slidedeck.CodeSlide",
   layoutKind: 'enyo.FittableRowsLayout',
 
   published: {
@@ -64,7 +64,7 @@ enyo.kind({
             this.destroyClientControls();
             try {
               var stripWhitespace = inCode.replace(/\s/g, '') // Fuck whitespace
-                , regexResults = /enyo.kind\(\{\W*\S*name:("|')(\w*)(\1),\S*components:/m.exec(stripWhitespace)
+                , regexResults = /\S*?name:("|')(\w+)(\1)\S*/g.exec(stripWhitespace)
                 , kindName = regexResults[2];
               this.evalCode(inCode);
               this.createComponent({kind: kindName});
