@@ -61,7 +61,7 @@ enyo.kind({
             this.destroyClientControls();
             try {
               var stripWhitespace = inCode.replace(/\s/g, '') // Fuck whitespace
-                , regexResults = /\S*name:("|')(\w*)(\1)\S*/m.exec(stripWhitespace)
+                , regexResults = /\S*?name:("|')(\w+)(\1)\S*/g.exec(stripWhitespace)
                 , kindName = regexResults[2];
               this.evalCode(inCode);
               this.createComponent({kind: kindName});
