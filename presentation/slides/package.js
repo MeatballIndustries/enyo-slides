@@ -3,6 +3,8 @@ enyo.depends(
   'whatIsIt.js',
   'aboutUs.js',
   'history.js',
+  'benefits.js',
+  'oop.js',
   'onyxPlayground.js',
   'questions.js'
 );

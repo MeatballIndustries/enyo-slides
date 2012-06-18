@@ -3,6 +3,8 @@ var slideOrder = [
   'aboutUs',
   'whatIsIt',
   'history',
+  'benefits',
+  'oop',
   'onyxPlayground',
   'questions'
 ];

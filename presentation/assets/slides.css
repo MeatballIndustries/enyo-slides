@@ -6,6 +6,20 @@ h2 {
   font-size: 2em;
 }
 
+ul {
+  font-size: 2em;
+  margin: 50px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+li > ul {
+  margin: 0;
+  font-size: 1em; /* don't double up on 2em font-size */
+}
+
 .title-slide {
   text-align: center;
   background: url(american-flag.jpg);

@@ -32,7 +32,7 @@ enyo.kind({
                   kind: "enyo.Select",
                   name: "sampleSelect",
                   classes: 'onyx-button', // Super hacky, would be better to specify the same styles in a different class :P
-                  style: 'padding-bottom: 5px;',
+                  style: 'padding-bottom: 5px;'
                 },
                 {
                   kind: "onyx.Button",
@@ -46,7 +46,7 @@ enyo.kind({
             {
               fit: true,
               kind: 'CodeEditor',
-              style: 'width: 100%;'
+              style: 'width: 100%; font-size: 2em;'
             },
             {
               kind: "onyx.Button",
