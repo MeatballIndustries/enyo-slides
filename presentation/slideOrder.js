@@ -5,6 +5,7 @@ var slideOrder = [
   'history',
   'benefits',
   'oop',
+  'kindsPlayground',
   'onyxPlayground',
   'questions'
 ];

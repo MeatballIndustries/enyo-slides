@@ -11,7 +11,7 @@ enyo.kind({
       components:[
         {
           fit: true,
-          name: "left_div",
+          name: "left_div"
         },
         {
           name: "right_div",

@@ -3,19 +3,21 @@ enyo.kind({
   name: 'questions',
   components: [
     {
-      tag: 'h1',
+      kind: 'onyx.Toolbar',
       content: 'Questions??'
     },
     {
       name: 'questionList',
       kind: 'Scroller',
-      maxHeight: '88%'
+      classes: 'enyo-fit',
+      touch: true,
+      style: 'margin: 60px 0 10px; font-size: 2em;'
     }
   ],
   addQuestion: function(question){
-    console.log(question);
     this.$.questionList.createComponent({
-      content: enyo.macroize('{$name}: {$question}', question)
+      content: enyo.macroize('{$name}: {$question}', question),
+      style: 'margin: 0 50px;'
     });
     this.render();
   }

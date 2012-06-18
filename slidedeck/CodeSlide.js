@@ -94,13 +94,10 @@ enyo.kind({
     this.$.codePlayer.go(this.$.codeEditor.getValue());
   },
 
-  setCodeSamples: function() {
-    this.inherited(arguments);
-
-    this.$.sampleSelect.destroyClientControls();
-    for(var idx in arguments[0]) {
-      var sampleFile = arguments[0][idx];
-      this.$.sampleSelect.createComponent({tag: "option", content: sampleFile, value: sampleFile});
+  setCodeSamples: function(sampleArray) {
+    for(var idx = 0; idx < sampleArray.length; idx++){
+      var sampleFile = sampleArray[idx];
+      this.$.sampleSelect.createComponent({kind: "enyo.Option", content: sampleFile, value: sampleFile});
     }
     this.$.sampleSelect.render();
   },

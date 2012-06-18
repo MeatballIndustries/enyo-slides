@@ -5,6 +5,7 @@ enyo.depends(
   'history.js',
   'benefits.js',
   'oop.js',
+  'kindsPlayground.js',
   'onyxPlayground.js',
   'questions.js'
 );
