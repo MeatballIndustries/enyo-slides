@@ -1,9 +1,6 @@
 [submodule "extra"]
 	path = lib/extra
 	url = https://github.com/enyojs/extra
-[submodule "enyo"]
-	path = lib/enyo
-	url = https://github.com/enyojs/enyo
 [submodule "onyx"]
 	path = lib/onyx
 	url = https://github.com/enyojs/onyx
@@ -13,3 +10,6 @@
 [submodule "more-arrangers"]
 	path = lib/more-arrangers
 	url = git://github.com/ShiftyAxel/more-arrangers.git
+[submodule "enyo"]
+	path = enyo
+	url = https://github.com/enyojs/enyo.git
