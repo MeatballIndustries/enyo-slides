@@ -5,7 +5,7 @@ enyo.kind({
   create: function() {
     this.inherited(arguments);
 
-    this.setCodeSamples(["onyxButtonsSimple", "onyxPopup","onyxSlidersAndProgress"]);
+    this.setCodeSamples(["onyxButtonsSimple", "onyxPopup","onyxSlidersAndProgress","onyxControls"]);
     this.setTitle("Onyx Widget Playground");
   }
 });

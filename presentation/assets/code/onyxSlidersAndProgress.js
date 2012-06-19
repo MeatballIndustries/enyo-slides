@@ -48,13 +48,26 @@ enyo.kind({
     }
   ],
 
+  resetSlider: function(inSender) {
+    // this is ugly, but it's sample code
+    this.$.progressBar1.setProgress(0);
+    this.$.progressBar2.setProgress(0);
+    this.$.progressBar3.setProgress(0);
+    this.$.progressButton1.setProgress(0);
+    this.$.progressButton2.setProgress(0);
+    this.$.progressButton3.setProgress(0);
+    this.$.slider1.setValue(0);
+    this.$.valueDiv.setContent(0);
+  },
+
   updateProgress: function(inSender, inEvent) {
-    this.$.progressBar1.animateProgressTo(inEvent.value);
-    this.$.progressBar2.animateProgressTo(inEvent.value);
-    this.$.progressBar3.animateProgressTo(inEvent.value);
-    this.$.progressButton1.animateProgressTo(inEvent.value);
-    this.$.progressButton2.animateProgressTo(inEvent.value);
-    this.$.progressButton3.animateProgressTo(inEvent.value);
+    // this is ugly, but it's sample code
+    this.$.progressBar1.setProgress(inEvent.value);
+    this.$.progressBar2.setProgress(inEvent.value);
+    this.$.progressBar3.setProgress(inEvent.value);
+    this.$.progressButton1.setProgress(inEvent.value);
+    this.$.progressButton2.setProgress(inEvent.value);
+    this.$.progressButton3.setProgress(inEvent.value);
     this.$.valueDiv.content = inEvent.value;
     this.$.valueDiv.render();
   }
