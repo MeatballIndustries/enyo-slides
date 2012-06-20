@@ -2,9 +2,10 @@ enyo.depends(
   'title.js',
   'whatIsIt.js',
   'aboutUs.js',
-  'history.js',
+  'enyoHistory.js',
   'benefits.js',
   'oop.js',
+  'packageLoader.js',
   'kindsPlayground.js',
   'onyxPlayground.js',
   'questions.js'

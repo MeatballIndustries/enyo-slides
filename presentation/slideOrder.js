@@ -2,9 +2,10 @@ var slideOrder = [
   'title',
   'aboutUs',
   'whatIsIt',
-  'history',
+  'enyoHistory',
   'benefits',
   'oop',
+  'packageLoader',
   'kindsPlayground',
   'onyxPlayground',
   'questions'
