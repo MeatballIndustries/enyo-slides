@@ -8,5 +8,7 @@ enyo.depends(
   'packageLoader.js',
   'kindsPlayground.js',
   'onyxPlayground.js',
+  'layoutLibrary.js',
+  'bootplate.js',
   'questions.js'
 );

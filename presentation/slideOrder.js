@@ -8,5 +8,7 @@ var slideOrder = [
   'packageLoader',
   'kindsPlayground',
   'onyxPlayground',
+  'layoutLibrary',
+  'bootplate',
   'questions'
 ];
