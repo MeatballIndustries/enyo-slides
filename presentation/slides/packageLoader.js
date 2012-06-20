@@ -11,8 +11,72 @@ enyo.kind({
       kind: 'enyo.FittableColumns',
       components: [
         {
-          content: 'Explain package loader',
-          style: 'width: 50%;'
+          style: 'width: 50%;',
+          components: [
+            {
+              tag: 'ul',
+              components: [
+                {
+                  tag: 'li',
+                  components: [
+                    {
+                      content: 'Why a custom loader?'
+                    },
+                    {
+                      tag: 'ul',
+                      components: [
+                        {
+                          tag: 'li',
+                          content: 'Less tags to write in HTML'
+                        },
+                        {
+                          tag: 'li',
+                          content: 'Uniform way to include files'
+                        },
+                        {
+                          tag: 'li',
+                          content: 'Allows for structured apps'
+                        },
+                        {
+                          tag: 'li',
+                          content: 'Encapsulate standalone packages'
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  tag: 'li',
+                  components: [
+                    {
+                      content: 'What can be loaded?'
+                    },
+                    {
+                      tag: 'ul',
+                      components: [
+                        {
+                          tag: 'li',
+                          content: 'Scripts'
+                        },
+                        {
+                          tag: 'li',
+                          content: 'Stylesheets'
+                        },
+                        {
+                          tag: 'li',
+                          content: 'Packages'
+                        },
+                        {
+                          tag: 'li',
+                          content: 'Even from external sources!'
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           fit: true,
