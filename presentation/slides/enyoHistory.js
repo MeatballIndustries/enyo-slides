@@ -1,6 +1,6 @@
 enyo.kind({
   kind: 'slidedeck.Slide',
-  name: 'history',
+  name: 'enyoHistory',
 
   components: [
     {

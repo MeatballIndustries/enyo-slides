@@ -2,12 +2,15 @@ var slideOrder = [
   'title',
   'aboutUs',
   'whatIsIt',
-  'history',
+  'enyoHistory',
   'benefits',
   'oop',
+  'packageLoader',
   'kindsPlayground',
   'onyxWhy',
   'onyxBasics',
   'onyxPlayground',
+  'layoutLibrary',
+  'bootplate',
   'questions'
 ];
