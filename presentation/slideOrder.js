@@ -6,6 +6,8 @@ var slideOrder = [
   'benefits',
   'oop',
   'kindsPlayground',
+  'onyxWhy',
+  'onyxBasics',
   'onyxPlayground',
   'questions'
 ];
