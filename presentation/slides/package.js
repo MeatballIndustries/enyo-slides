@@ -10,5 +10,8 @@ enyo.depends(
   'onyxPlayground.js',
   'layoutLibrary.js',
   'bootplate.js',
+  'communityGallery.js',
+  'deployment.js',
+  'enyoFuture.js',
   'questions.js'
 );

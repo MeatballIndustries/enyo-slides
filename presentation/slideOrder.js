@@ -10,5 +10,8 @@ var slideOrder = [
   'onyxPlayground',
   'layoutLibrary',
   'bootplate',
+  'communityGallery',
+  'deployment',
+  'enyoFuture',
   'questions'
 ];
