@@ -18,7 +18,7 @@ enyo.kind({
           style: 'width: 50%;',
           components: [
             {components: [
-              {kind: "Image", src: "http://rix.si/assets/uploads/ryan_headshot.png", classes: "left-photo"},
+              {kind: "Image", src: "$presentation/assets/ryan_headshot_med.jpg", classes: "left-photo"},
               {components: [
                 {tag: "span", classes: "strong", content: "Ryan Rix"},
                 {tag: "span", content: " is an open source developer born in raised in the Valley. He has been developing mobile and desktop applications since 2005, and is involved in a number open source projects."},
