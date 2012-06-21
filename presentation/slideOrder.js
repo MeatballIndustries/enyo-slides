@@ -9,7 +9,6 @@ var slideOrder = [
   'packageLoader',
   'kindsPlayground',
   'onyxWhy',
-  'onyxBasics',
   'onyxPlayground',
   'layoutLibrary',
   'bootplate',

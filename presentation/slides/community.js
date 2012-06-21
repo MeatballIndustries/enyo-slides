@@ -54,7 +54,7 @@ enyo.kind({
         },
         {
           tag: 'li',
-          content: 'Devrel is awesome'
+          content: 'Team Enyo is Awesome'
         },
         {
           style: 'height: 300px;',
