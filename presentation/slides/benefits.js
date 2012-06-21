@@ -32,7 +32,24 @@ enyo.kind({
         },
         {
           tag: 'li',
-          content: 'Community Gallery of user components'
+          components: [
+            {
+              content: 'Awesome community'
+            },
+            {
+              tag: 'ul',
+              components: [
+                {
+                  tag: 'li',
+                  content: 'Tons of Support'
+                },
+                {
+                  tag: 'li',
+                  content: 'Community Gallery of user components'
+                }
+              ]
+            }
+          ]
         },
         {
           tag: 'li',
