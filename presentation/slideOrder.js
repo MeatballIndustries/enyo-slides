@@ -4,6 +4,7 @@ var slideOrder = [
   'whatIsIt',
   'enyoHistory',
   'benefits',
+  'community',
   'oop',
   'packageLoader',
   'kindsPlayground',

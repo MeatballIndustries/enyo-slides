@@ -4,6 +4,7 @@ enyo.depends(
   'aboutUs.js',
   'enyoHistory.js',
   'benefits.js',
+  'community.js',
   'oop.js',
   'packageLoader.js',
   'kindsPlayground.js',
