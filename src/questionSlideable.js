@@ -60,10 +60,4 @@ enyo.kind({
       this.owner.socket.emit('newQuestion', { name: name, question: question });
     }
   },
-
-  returnPressed: function(inSender, inEvent){
-    if(inEvent.keyCode === 13){
-      this.submitQuestion();
-    }
-  }
 });
