@@ -1,15 +1,15 @@
 [submodule "extra"]
-	path = extra
+	path = lib/extra
 	url = https://github.com/enyojs/extra
-[submodule "enyo"]
-	path = enyo
-	url = https://github.com/enyojs/enyo
 [submodule "onyx"]
-	path = onyx
+	path = lib/onyx
 	url = https://github.com/enyojs/onyx
 [submodule "layout"]
-	path = layout
+	path = lib/layout
 	url = https://github.com/enyojs/layout
-[submodule "more-arrangers"]
-	path = more-arrangers
+[submodule "enyo"]
+	path = enyo
+	url = https://github.com/enyojs/enyo.git
+[submodule "lib/more-arrangers"]
+	path = lib/more-arrangers
 	url = git://github.com/ShiftyAxel/more-arrangers.git

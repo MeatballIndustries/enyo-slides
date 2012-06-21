@@ -7,6 +7,8 @@ var slideOrder = [
   'oop',
   'packageLoader',
   'kindsPlayground',
+  'onyxWhy',
+  'onyxBasics',
   'onyxPlayground',
   'layoutLibrary',
   'bootplate',

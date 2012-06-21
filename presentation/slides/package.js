@@ -7,6 +7,7 @@ enyo.depends(
   'oop.js',
   'packageLoader.js',
   'kindsPlayground.js',
+  'onyxWhy.js',
   'onyxPlayground.js',
   'layoutLibrary.js',
   'bootplate.js',
