@@ -1,5 +1,6 @@
 enyo.depends(
-  '../socket-io/',
+  '../lib',
+  '../presentation',
   'questionSlideable.js',
   'main.js'
 );
