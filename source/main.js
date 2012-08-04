@@ -68,16 +68,12 @@ enyo.kind({
     enyo.forEach(slideOrder, this.setupSlide, this);
 
     this.socket = new Socket({
-      on: [
-        {
-          name: 'changeSlide',
-          callback: enyo.bind(this, this.changeSlide)
-        },
-        {
-          name: 'updateQuestions',
-          callback: enyo.bind(this, this.updateQuestions)
+      init: {
+        on: {
+          changeSlide:     enyo.bind(this, this.changeSlide),
+          updateQuestions: enyo.bind(this, this.updateQuestions)
         }
-      ]
+      }
     });
 
     if(window.location.search === '?presenter'){
