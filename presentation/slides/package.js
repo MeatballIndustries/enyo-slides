@@ -1,4 +1,4 @@
-enyo.depends(
+registerSlides(
   'title.js',
   'whatIsIt.js',
   'aboutUs.js',

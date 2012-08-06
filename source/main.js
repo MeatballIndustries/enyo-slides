@@ -65,7 +65,7 @@ enyo.kind({
     this.inherited(arguments);
 
     // Loop through the slides array to setup initial slides
-    enyo.forEach(slideOrder, this.setupSlide, this);
+    enyo.forEach(registerSlides.slideOrder, this.setupSlide, this);
 
     this.socket = new Socket({
       init: {
