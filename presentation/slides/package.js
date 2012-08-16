@@ -2,18 +2,8 @@ registerSlides(
   'title.js',
   'whatIsIt.js',
   'aboutUs.js',
-  'enyoHistory.js',
-  'benefits.js',
-  'community.js',
-  'oop.js',
-  'packageLoader.js',
-  'kindsPlayground.js',
-  'onyxWhy.js',
-  'onyxPlayground.js',
-  'layoutLibrary.js',
-  'bootplate.js',
-  'communityGallery.js',
-  'deployment.js',
-  'enyoFuture.js',
-  'questions.js'
+  'communityGallery.html',
+  'deployment.html',
+  'enyoFuture.html',
+  'questions.html'
 );
