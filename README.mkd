@@ -8,6 +8,22 @@ time. Further, anyone with the presentation's URL can tune in to the
 presentation, play with it on their device, and leave comments and questions
 for the presenter.
 
+Usage
+-----
+
+To see how to create a presentation, check out the presentation/ directory.
+
+To start your presentation, use [this
+nodeJS server](https://github.com/MeatballIndustries/enyo-slides-server).
+Place this directory's contents in the slides server's public directory and
+run the application with ``node app.js`` or deploy it to a hosted solution
+such as [Heroku](http://heroku.com) or [Nodester](http://nodester.com).
+
+We are currently working on a hosted version of EnyoSlides which takes most of
+the pain out of setup. If you need help, please contact rrix in the #EnyoJS
+IRC channel on Freenode, or [@rrrrrrrix on
+twitter](https://twitter.com/rrrrrrix).
+
 Hacking
 -------
 
