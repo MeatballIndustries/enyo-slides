@@ -96,9 +96,20 @@ enyo.kind({
   },
 
   setupSlide: function(kindName) {
-    this.$.slidesPanes.addSlide({
-      kind: kindName
-    });
+    var object = {};
+
+    if( /.js$/.exec(kindName) ) {
+      var kind = kindName.replace('.js', '');
+
+      object = { kind: kind };
+    } else if( /.html$/.exec(kindName) ) {
+      object = {
+        kind: "slidedeck.HTMLSlide",
+        url:  "/presentation/slides/" + kindName
+      };
+    }
+
+    this.$.slidesPanes.addSlide( object );
   },
 
   changeSlide: function(slideIndex){
