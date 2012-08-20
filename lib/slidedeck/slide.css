@@ -5,3 +5,86 @@
 .center {
   text-align: center;
 }
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+ul {
+  font-size: 2em;
+  margin: 10px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+li > ul {
+  margin: 0;
+  font-size: 0.8em; /* don't double up on 2em font-size */
+}
+
+li > ul > li > ul {
+  margin: 0;
+  font-size: 0.9em; /* don't double up on 2em font-size */
+}
+
+.pullout-grabbutton {
+  position: absolute;
+  height: 54px;
+  width: 50px;
+  top: 0;
+  left: -50px;
+  border-radius: 10px 0 0 10px;
+  background-color: #D8D8D8;
+  box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+}
+
+.pullout {
+  width: 274px;
+  background-color: #D8D8D8;
+  box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+  border-radius: 0 0 0 10px;
+}
+
+.pullout-controls > * {
+  margin: 20px;
+  display: block;
+}
+
+.code-pullout-controls > * {
+  margin: 20px;
+  display: inline-block;
+}
+
+.code-pullout {
+  width: 500px;
+  background-color: #D8D8D8;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  border-radius: 0 0 10px 0;
+}
+
+.code-pullout-grabbutton {
+  margin: 9px;
+  width: 32px;
+  height: 32px;
+}
+
+.code-pullout-grabbutton-container {
+  border-radius: 0 10px 10px 0;
+  background-color: #D8D8D8;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  top: 0;
+  right: -50px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+}
+
+.fitting-color {
+  background: #B7BFC4;
+}
