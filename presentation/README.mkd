@@ -37,7 +37,8 @@ This specifies which files to load in your application, while also specifying
 the order they are in.
 
 *This can also live somewhere else, as long as you specify absolute paths to
-your slides.*
+your slides and your EnyoJS slides (if any) have the same kind name as their
+paths would imply. (ie the aboutUs.js slide needs to be name: 'aboutUs'.k*
 
 Code Example Slides
 -------------------
