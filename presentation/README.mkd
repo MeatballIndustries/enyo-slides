@@ -22,7 +22,7 @@ loaded in to Enyo and simultaneously inject things like HTML slides (and
 possibly more in the future). The syntax is very similar to a standard Enyo
 package.js:
 
-```@javascript
+```javascript
 registerSlides(
   '/presentation/slides/title.js',
   '/presentation/slides/whatIsIt.js',
@@ -47,7 +47,7 @@ If your slides are about [EnyoJS](http://enyojs.com), and you want to do live
 code demos, we have a slide kind that you can use to load snippets of code in
 to a dropdown menu to show during your presentation:
 
-```@javascript
+```javascript
 enyo.kind({
   kind: "slidedeck.CodeSlide",
   name: "kindsPlayground",
