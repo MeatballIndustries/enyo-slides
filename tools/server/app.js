@@ -3,9 +3,9 @@
  * Module dependencies.
  */
 
-var express = require('express')
-  , routes = require('./routes')
-  , io = require('socket.io');
+var express = require('express');
+var routes = require('./routes');
+var io = require('socket.io');
 
 var app = module.exports = express.createServer();
 
@@ -21,7 +21,7 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
+  app.use(express['static'](__dirname + '/../../'));
 });
 
 app.configure('development', function(){
