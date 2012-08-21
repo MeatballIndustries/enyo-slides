@@ -1,0 +1,62 @@
+Presentation Creation
+=====================
+
+Directory Structure
+-------------------
+While not required, we really think that you should be seperating your slides
+from your assets, hence the following directory structure:
+
+```
+* presentation/: root of the loaded presentation
+|`* assets/: Images, CSS, code samples, etc live here. ("/presentation/assets")
+| `* code/: Code samples live here. These are loaded by CodePlayer slides
+ `* slides/: Where the slides and the slides package.js loader live.
+```
+
+presentation/slides/package.js
+------------------------------
+
+This is a modified version of Enyo's standard package.js. By piggybacking on
+top of their loader, we can make sure the code that you need is properly
+loaded in to Enyo and simultaneously inject things like HTML slides (and
+possibly more in the future). The syntax is very similar to a standard Enyo
+package.js:
+
+```@javascript
+registerSlides(
+  '/presentation/slides/title.js',
+  '/presentation/slides/whatIsIt.js',
+  '/presentation/slides/aboutUs.js',
+  '/presentation/slides/communityGallery.html',
+  '/presentation/slides/enyoFuture.html',
+  '$slidedeck/questions.js'
+);
+```
+
+This specifies which files to load in your application, while also specifying
+the order they are in.
+
+*This can also live somewhere else, as long as you specify absolute paths to
+your slides and your EnyoJS slides (if any) have the same kind name as their
+paths would imply. (ie the aboutUs.js slide needs to be name: 'aboutUs'.k*
+
+Code Example Slides
+-------------------
+
+If your slides are about [EnyoJS](http://enyojs.com), and you want to do live
+code demos, we have a slide kind that you can use to load snippets of code in
+to a dropdown menu to show during your presentation:
+
+```@javascript
+enyo.kind({
+  kind: "slidedeck.CodeSlide",
+  name: "kindsPlayground",
+
+  create: function() {
+    this.inherited(arguments);
+
+    this.setCodeSamples(["sample1", 'sample2', 'sample3', 'sample4']);
+    this.setTitle("Kinds Playground");
+  }
+});
+```
