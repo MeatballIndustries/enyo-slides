@@ -13,11 +13,11 @@ Usage
 
 To see how to create a presentation, check out the presentation/ directory.
 
-To start your presentation, use [this
-nodeJS server](https://github.com/MeatballIndustries/enyo-slides-server).
-Place this directory's contents in the slides server's public directory and
-run the application with ``node app.js`` or deploy it to a hosted solution
-such as [Heroku](http://heroku.com) or [Nodester](http://nodester.com).
+To start your presentaiton on a local machine, run ```npm install``` and then
+you can start a presentation using ```node tools/server/app.js```. This, of
+course, assumes you have [node.js](http://nodejs.com) installed on your
+machine. You can also host it yourself on a hosted solution such as
+[Heroku](http://heroku.com) or [Nodester](http://nodester.com).
 
 We are currently working on a hosted version of EnyoSlides which takes most of
 the pain out of setup. If you need help, please contact rrix in the #EnyoJS
