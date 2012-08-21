@@ -1,0 +1,3 @@
+[submodule "support/socket.io/socket.io-client"]
+	path = support/socket.io/socket.io-client
+	url = git@github.com:LearnBoost/socket.io-client

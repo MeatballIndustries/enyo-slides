@@ -8,6 +8,22 @@ time. Further, anyone with the presentation's URL can tune in to the
 presentation, play with it on their device, and leave comments and questions
 for the presenter.
 
+Usage
+-----
+
+To see how to create a presentation, check out the presentation/ directory.
+
+To start your presentaiton on a local machine, run ```npm install``` and then
+you can start a presentation using ```node tools/server/app.js```. This, of
+course, assumes you have [node.js](http://nodejs.com) installed on your
+machine. You can also host it yourself on a hosted solution such as
+[Heroku](http://heroku.com) or [Nodester](http://nodester.com).
+
+We are currently working on a hosted version of EnyoSlides which takes most of
+the pain out of setup. If you need help, please contact rrix in the #EnyoJS
+IRC channel on Freenode, or [@rrrrrrrix on
+twitter](https://twitter.com/rrrrrrix).
+
 Hacking
 -------
 

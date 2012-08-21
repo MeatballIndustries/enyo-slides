@@ -1,64 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>EnyoSlides</title>
-    <!-- Make iOS know that this is a webapp -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- This line is very important for devices that have overscroll in the browser (like HP Touchpad) -->
-    <meta name="viewport" content="width=device-width initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Load Enyo and the initial package.js -->
-    <script src="enyo/enyo.js" type="text/javascript"></script>
-    <script src="package.js" type="text/javascript"></script>
-    <style>
-      .pullout-grabbutton {
-        position: absolute;
-        height: 54px;
-        width: 50px;
-        top: 0;
-        left: -50px;
-        border-radius: 10px 0 0 10px;
-        background-color: #D8D8D8;
-        box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
-      }
+	<head>
+		<title>EnyoSlides</title>
+		<link rel="shortcut icon" href="assets/favicon.ico">
+		<!-- -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<!-- css -->
+		<link href="build/enyo.css" rel="stylesheet">
+		<link href="build/app.css" rel="stylesheet">
+                <style>
+                  .pullout-grabbutton {
+                    position: absolute;
+                    height: 54px;
+                    width: 50px;
+                    top: 0;
+                    left: -50px;
+                    border-radius: 10px 0 0 10px;
+                    background-color: #D8D8D8;
+                    box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+                  }
 
-      .pullout {
-        width: 274px;
-        background-color: #D8D8D8;
-        box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
-        border-radius: 0 0 0 10px;
-      }
+                  .pullout {
+                    width: 274px;
+                    background-color: #D8D8D8;
+                    box-shadow: -4px 4px 4px rgba(0,0,0,0.3);
+                    border-radius: 0 0 0 10px;
+                  }
 
-      .pullout-controls > * {
-        margin: 20px;
-        display: block;
-      }
+                  .pullout-controls > * {
+                    margin: 20px;
+                    display: block;
+                  }
 
-      .fitting-color {
-        background: #B7BFC4;
-      }
-    </style>
-  </head>
-  <!-- enyo-unselectable sets user-select to none in the css -->
-  <body class="enyo-unselectable">
-    <script type="text/javascript">
-      /*
-       *  The main enyo.kind is named app.Main
-       *  This can be changed to anything you want and namespacing isn't required (but recommended)
-       */
-      var app = new Main();
-
-      /*
-       *  The domNode passed to .renderInto(domNode) is replaced by the HTML output of the control being called upon
-       */
-      app.renderInto(document.body)
-
-      /*
-       *  Alternatively:
-       *
-       *  Insert the instantiated control's content into the DOM at document.body
-       *  This turns the content into a string and is output with document.write()
-       */
-      // app.write()
-    </script>
-  </body>
+                  .fitting-color {
+                    background: #B7BFC4;
+                  }
+                </style>
+                <!-- js -->
+                <script src="build/enyo.js"></script>
+                <script src="build/app.js" onerror="alert('No application build found, redirecting to debug.html.'), location='debug.html';"></script>
+	</head>
+	<body class="enyo-unselectable">
+		<script>
+			new Main().write();
+		</script>
+	</body>
 </html>
